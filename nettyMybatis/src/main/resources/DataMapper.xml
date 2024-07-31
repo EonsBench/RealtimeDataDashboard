@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.DataMapper">
+    <resultMap id="dataResultMap" type="org.example.model.Wind">
+        <id property="id" column="id"/>
+        <result property="data" column="data"/>
+        <result property="currentTime" column="currentTime"/>
+    </resultMap>
+
+    <insert id="insertData" parameterType="org.example.model.Wind">
+        INSERT INTO winds (data) VALUES (#{data})
+    </insert>
+
+    <select id="getAllDatas" resultMap="dataResultMap">
+        SELECT * FROM winds
+    </select>
+
+</mapper>
